@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    private void FixedUpdate()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
