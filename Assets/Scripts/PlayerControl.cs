@@ -6,16 +6,21 @@ public class PlayerControl : MonoBehaviour
 {
     public GameObject WinInterface;
     public GameObject LoseInterface;
-
+    float xInput;
+    Rigidbody2D rb;
+    public float MoveSpeed;
+    
     void Start()
     {
+        rb = this.GetComponent<Rigidbody2D>();
         Time.timeScale = 1;   
     }
 
 
     void Update()
     {
-        
+        xInput = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(xInput*MoveSpeed, 0);
     }
     void Lose()
     {
