@@ -14,6 +14,7 @@ public class PlayerControl : MonoBehaviour
     public AudioSource BGM;
     public AudioSource Die;
     public AudioSource Pick;
+    public AudioSource Car;
 
     
     void Start()
@@ -21,6 +22,7 @@ public class PlayerControl : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>();
         Time.timeScale = 1;
         sp = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        Car.Play();
     }
 
 
@@ -47,6 +49,7 @@ public class PlayerControl : MonoBehaviour
         LoseInterface.SetActive(true);
         BGM.Stop();
         Die.Play();
+        Car.Stop();
     }
     void Win()
     {
