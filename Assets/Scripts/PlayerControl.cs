@@ -40,6 +40,10 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
+        if (RoadManager.currentLevelState >= 4)
+        {
+            Win();
+        }
         if (Input.GetKeyDown(KeyCode.F1))
         {if(this.GetComponent<CapsuleCollider2D>().enabled == true)
             {
@@ -70,15 +74,8 @@ public class PlayerControl : MonoBehaviour
             anim.SetBool("isRight", true);
             anim.SetBool("isLeft", false);
         }
-        if (isWin)
-        {
-            winTimer += Time.deltaTime;
-            if (winTimer >= 3f)
-            {
-                Time.timeScale = 0;
-                SceneManager.LoadScene("End");
-            }
-        }
+
+
 
         if(UINumber>0 && UINumber <= 1)
         {
@@ -103,7 +100,9 @@ public class PlayerControl : MonoBehaviour
     }
     void Win()
     {
-        isWin = true;
+        Time.timeScale = 0;
+        Debug.Log("Win");
+        SceneManager.LoadScene("End");
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -120,10 +119,6 @@ public class PlayerControl : MonoBehaviour
             RoadManager.currentLevelState++;
             Debug.Log(RoadManager.currentLevelState);
             Destroy(collision.gameObject);
-            if (RoadManager.currentLevelState >= 4)
-            {
-                Win();
-            }
         }
     }
 }
