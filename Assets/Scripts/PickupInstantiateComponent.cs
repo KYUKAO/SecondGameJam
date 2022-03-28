@@ -14,6 +14,7 @@ public class PickupInstantiateComponent : MonoBehaviour
     void Start()
     {
         instantiateTriggerValue = InstantiateLine.position.y;
+
     }
 
 
@@ -24,7 +25,7 @@ public class PickupInstantiateComponent : MonoBehaviour
         {
             GameObject pickup = Instantiate(PickUp, this.transform.position, this.transform.rotation);
             switch(RoadManager.currentLevelState)
-            {
+            { 
                 case(1):
                     pickup.GetComponent<SpriteRenderer>().sprite = A;
                 break;
