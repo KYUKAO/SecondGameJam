@@ -20,6 +20,11 @@ public class PlayerControl : MonoBehaviour
 
     float winTimer = 0;
     bool isWin = false;
+    private int UINumber=0;
+    public GameObject A;
+    public GameObject B;
+    public GameObject C;
+
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
@@ -27,6 +32,9 @@ public class PlayerControl : MonoBehaviour
         sp = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         anim = this.GetComponentInChildren<Animator>();
         Car.Play();
+        A.SetActive(false);
+        B.SetActive(false);
+        C.SetActive(false);
     }
 
 
@@ -71,6 +79,19 @@ public class PlayerControl : MonoBehaviour
                 SceneManager.LoadScene("End");
             }
         }
+
+        if(UINumber>0 && UINumber <= 1)
+        {
+            A.SetActive(true);
+        }
+        if (UINumber>1 && UINumber <= 2)
+        {
+            B.SetActive(true);
+        }
+        if (UINumber>2 && UINumber <= 3)
+        {
+            C.SetActive(true);
+        }
     }
     void Lose()
     {
@@ -95,6 +116,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PickupComponent>() != null)
         {
+            UINumber++;
             RoadManager.currentLevelState++;
             Debug.Log(RoadManager.currentLevelState);
             Destroy(collision.gameObject);
