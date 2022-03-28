@@ -8,19 +8,22 @@ public class RoadManager : MonoBehaviour
    public  Transform targetPoint;
     public GameObject currentRoad;
     GameObject nextRoad;
-    public float TriggerValue;
+     float instantiateTriggerValue;
+    public Transform InstantiateLine;
+    public Transform DestroyLine;
     void Start()
     {
-        
+        instantiateTriggerValue = InstantiateLine.position.y;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentRoad.GetComponent<RoadControl>().triggerPoint.position.y < TriggerValue)
+        if (currentRoad.GetComponent<RoadControl>().triggerPoint.position.y < instantiateTriggerValue)
         {
             nextRoad=Instantiate(RoadPrefab, targetPoint.position, this.transform.rotation);
             currentRoad = nextRoad;
         }
     }
+  
 }

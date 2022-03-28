@@ -7,7 +7,8 @@ public class RoadControl : MonoBehaviour
     public float SimpleSpeed;
     Rigidbody2D rb;
     public Transform triggerPoint;
-    public float TriggerValue;
+    float timer = 0;
+    public float DestroyTime;
     private void Start()
     {
         triggerPoint = this.transform.GetChild(0);
@@ -16,7 +17,11 @@ public class RoadControl : MonoBehaviour
     }
     private void Update()
     {
-
+        timer += Time.deltaTime;
+        if (timer >= DestroyTime)
+        {
+            Destroy(this.gameObject);
+        }
       
     }
 }
