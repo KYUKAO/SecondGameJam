@@ -10,6 +10,8 @@ public class PlayerControl : MonoBehaviour
     Rigidbody2D rb;
     public float MoveSpeed;
     SpriteRenderer sp;
+    Animator anim;
+    public float animFloat = 0.05f;
 
     public AudioSource BGM;
     public AudioSource Die;
@@ -22,6 +24,7 @@ public class PlayerControl : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>();
         Time.timeScale = 1;
         sp = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        anim = this.GetComponentInChildren<Animator>();
         Car.Play();
     }
 
@@ -42,6 +45,23 @@ public class PlayerControl : MonoBehaviour
         Debug.Log(xInput);
         xInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(xInput*MoveSpeed, 0);
+
+        if (xInput < -animFloat)
+        {
+            anim.SetBool("isLeft", true);
+            anim.SetBool("isRight", false);
+        }
+        if (xInput >= -animFloat && xInput <= animFloat)
+        {
+            anim.SetBool("isLeft", false);
+            anim.SetBool("isRight", false);
+        }
+
+        if (xInput > animFloat)
+        {
+            anim.SetBool("isRight", true);
+            anim.SetBool("isLeft", false);
+        }
     }
     void Lose()
     {
