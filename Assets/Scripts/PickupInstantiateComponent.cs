@@ -10,7 +10,7 @@ public class PickupInstantiateComponent : MonoBehaviour
     public Sprite A;
     public Sprite B;
     public Sprite C;
-    bool canInstantiate = true;
+   public bool canInstantiate = true;
     void Start()
     {
         instantiateTriggerValue = InstantiateLine.position.y;

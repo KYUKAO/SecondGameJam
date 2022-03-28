@@ -17,12 +17,24 @@ public class LevelManager : MonoBehaviour
         recyclePoint = this.transform.GetChild(0).transform;
         instantiateTriggerValue = InstantiateLine.position.y;
         startTransform = this.transform.position;
+
     }
     private void Update()
     {
         if (recyclePoint.position.y<instantiateTriggerValue)
         {
             this.transform.position = startTransform;
+            foreach (Transform item in transform)
+            {
+              if(item.gameObject.GetComponent<EnemyInstantiatetPointComponent>() != null)
+                {
+                    item.gameObject.GetComponent<EnemyInstantiatetPointComponent>().canInstantiate = true;
+                }
+                if (item.gameObject.GetComponent<PickupInstantiateComponent>() != null)
+                {
+                    item.gameObject.GetComponent<PickupInstantiateComponent>().canInstantiate = true;
+                }
+            }
         }
     }
 }

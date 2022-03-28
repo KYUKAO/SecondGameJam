@@ -7,7 +7,7 @@ public class EnemyInstantiatetPointComponent : MonoBehaviour
     float instantiateTriggerValue;
     public Transform InstantiateLine;
     public GameObject Enemy;
-    bool canInstantiate = true;
+    public bool canInstantiate = true;
     public EnemyControl.EnemyType currentEnemyType;
     void Start()
     {
