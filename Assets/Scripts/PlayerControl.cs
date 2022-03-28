@@ -18,7 +18,8 @@ public class PlayerControl : MonoBehaviour
     public AudioSource Pick;
     public AudioSource Car;
 
-    
+    float winTimer = 0;
+    bool isWin = false;
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
@@ -61,6 +62,15 @@ public class PlayerControl : MonoBehaviour
             anim.SetBool("isRight", true);
             anim.SetBool("isLeft", false);
         }
+        if (isWin)
+        {
+            winTimer += Time.deltaTime;
+            if (winTimer >= 3f)
+            {
+                Time.timeScale = 0;
+                SceneManager.LoadScene("End");
+            }
+        }
     }
     void Lose()
     {
@@ -72,8 +82,7 @@ public class PlayerControl : MonoBehaviour
     }
     void Win()
     {
-        Time.timeScale = 0;
-        SceneManager.LoadScene("End");
+        isWin = true;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -89,6 +98,10 @@ public class PlayerControl : MonoBehaviour
             RoadManager.currentLevelState++;
             Debug.Log(RoadManager.currentLevelState);
             Destroy(collision.gameObject);
+            if (RoadManager.currentLevelState >= 4)
+            {
+                Win();
+            }
         }
     }
 }
