@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: backgound
+    uniqueID: 3319460763
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
