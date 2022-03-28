@@ -32,4 +32,11 @@ public class PlayerControl : MonoBehaviour
         Time.timeScale = 0;
         WinInterface.SetActive(true);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<EnemyControl>() != null)
+        {
+            Lose();
+        }
+    }
 }

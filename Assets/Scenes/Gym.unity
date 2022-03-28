@@ -1913,6 +1913,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6967608189036821458, guid: 35d84335b2d1a38449eb7f274d2f2cb7, type: 3}
+      propertyPath: currentEnemyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6967608189036821459, guid: 35d84335b2d1a38449eb7f274d2f2cb7, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -1923,11 +1927,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6967608189036821462, guid: 35d84335b2d1a38449eb7f274d2f2cb7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.59
+      value: 0.24
       objectReference: {fileID: 0}
     - target: {fileID: 6967608189036821462, guid: 35d84335b2d1a38449eb7f274d2f2cb7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.79
+      value: 9.74
       objectReference: {fileID: 0}
     - target: {fileID: 6967608189036821462, guid: 35d84335b2d1a38449eb7f274d2f2cb7, type: 3}
       propertyPath: m_LocalPosition.z
