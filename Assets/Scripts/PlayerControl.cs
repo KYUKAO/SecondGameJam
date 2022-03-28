@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class PlayerControl : MonoBehaviour
     void Win()
     {
         Time.timeScale = 0;
-        WinInterface.SetActive(true);
+        SceneManager.LoadScene("End");
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

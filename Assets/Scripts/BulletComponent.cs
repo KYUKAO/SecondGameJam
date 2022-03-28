@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class BulletComponent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        Invoke("DestroyItself", 0.5f);
     }
-
-    // Update is called once per frame
-    void Update()
+    void DestroyItself()
     {
-        
+        Destroy(this.gameObject);
     }
 }

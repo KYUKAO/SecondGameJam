@@ -6,7 +6,8 @@ public class ShootingBullets : MonoBehaviour
 {
     public GameObject Bullet;
     GameObject allBullets;
-    public float Timer;
+    float timer;
+    public float IntervalTime;
     public Transform bulletSpawn;
     public float bulletSpeed;
 
@@ -21,12 +22,12 @@ public class ShootingBullets : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            Timer -= Time.deltaTime;
-            if (Timer < 0)
+            timer -= Time.deltaTime;
+            if (timer < 0)
             {
                 allBullets = Instantiate(Bullet, bulletSpawn.position, bulletSpawn.rotation);
                 allBullets.GetComponent<Rigidbody2D>().AddForce(allBullets.transform.up * bulletSpeed);
-                Timer = 2;
+                timer = IntervalTime;
             }
         }
     }
