@@ -42,7 +42,6 @@ public class PlayerControl : MonoBehaviour
             }
 
         }
-        Debug.Log(xInput);
         xInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(xInput*MoveSpeed, 0);
 
@@ -81,6 +80,15 @@ public class PlayerControl : MonoBehaviour
         if (collision.gameObject.GetComponent<EnemyControl>() != null)
         {
             Lose();
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<PickupComponent>() != null)
+        {
+            RoadManager.currentLevelState++;
+            Debug.Log(RoadManager.currentLevelState);
+            Destroy(collision.gameObject);
         }
     }
 }

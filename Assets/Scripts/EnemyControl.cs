@@ -46,7 +46,6 @@ public class EnemyControl : MonoBehaviour
                 rb.velocity= Vector2.down * Speed;
                 break;
             case (EnemyType.SpeedUp):
-                Debug.Log(accelerateSpeed);
                 if (speedTimer >= SpeedUpIntervalTime)
                 {
                     accelerateSpeed = accelerateSpeed + speedTimer * SpeedUpRate;

@@ -11,8 +11,13 @@ public class RoadManager : MonoBehaviour
      float instantiateTriggerValue;
     public Transform InstantiateLine;
     public Transform DestroyLine;
+    public static int currentLevelState;
+    int previousLevelState;
+    public List<GameObject> levels;
     void Start()
     {
+        currentLevelState = 1;
+        previousLevelState = currentLevelState;
         instantiateTriggerValue = InstantiateLine.position.y;
     }
 
@@ -24,6 +29,13 @@ public class RoadManager : MonoBehaviour
             nextRoad=Instantiate(RoadPrefab, targetPoint.position, this.transform.rotation);
             currentRoad = nextRoad;
         }
+        if (previousLevelState != currentLevelState)
+        {
+            levels[previousLevelState-1].SetActive(false);
+            levels[currentLevelState-1].SetActive(true);
+            previousLevelState = currentLevelState;
+        }
+        
     }
   
 }

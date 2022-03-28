@@ -19,7 +19,6 @@ public class EnemyInstantiatetPointComponent : MonoBehaviour
         if (!canInstantiate) return;
         if((this.transform.position.y) < instantiateTriggerValue)
         {
-            Debug.Log("sss");
             GameObject enemy = Instantiate(Enemy, this.transform.position, this.transform.rotation);
             enemy.GetComponent<EnemyControl>().currentEnemyType = currentEnemyType;
             canInstantiate = false;
