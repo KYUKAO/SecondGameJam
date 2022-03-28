@@ -14,6 +14,10 @@ public class RoadControl : MonoBehaviour
         triggerPoint = this.transform.GetChild(0);
         rb = this.GetComponent<Rigidbody2D>();
         rb.velocity=Vector2.down*SimpleSpeed;
+        if (RoadManager.currentLevelState >= 3)
+        {
+            this.transform.GetChild(2).gameObject.SetActive(false);
+        }
     }
     private void Update()
     {
