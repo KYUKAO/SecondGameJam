@@ -17,17 +17,23 @@ public class RoadManager : MonoBehaviour
 
     public GameObject Player;
     public GameObject NewPlayer;
+    bool hasChanged = false;
     void Start()
     {
         currentLevelState = 1;
         previousLevelState = currentLevelState;
         instantiateTriggerValue = InstantiateLine.position.y;
-        NewPlayer.SetActive(false);
+       NewPlayer.SetActive(false);
+        Player.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            currentLevelState++;
+        }
         if (currentRoad.GetComponent<RoadControl>().triggerPoint.position.y < instantiateTriggerValue)
         {
             nextRoad=Instantiate(RoadPrefab, targetPoint.position, this.transform.rotation);
@@ -39,12 +45,13 @@ public class RoadManager : MonoBehaviour
             levels[currentLevelState-1].SetActive(true);
             previousLevelState = currentLevelState;
         }
-        if (currentLevelState == 3)
+        if (currentLevelState == 3&&hasChanged==false)
         {
             Vector3 playerPosition = Player.transform.position;
             Player.SetActive(false);
             NewPlayer.SetActive(true);
             NewPlayer.transform.position = playerPosition;
+            hasChanged = true;
         }
         
     }

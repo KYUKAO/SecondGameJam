@@ -5,7 +5,8 @@ using UnityEngine;
 public class NewShooting : MonoBehaviour
 {
     public GameObject Bullet;
-    GameObject allBullets;
+    GameObject allBullets1;
+    GameObject allBullets2;
     float timer;
     public float IntervalTime;
     public Transform bulletSpawn1;
@@ -28,9 +29,10 @@ public class NewShooting : MonoBehaviour
             if (timer <= 0)
             {
                 Shoot.Play();
-                allBullets = Instantiate(Bullet, bulletSpawn1.position, bulletSpawn1.rotation);
-                allBullets = Instantiate(Bullet, bulletSpawn2.position, bulletSpawn2.rotation);
-                allBullets.GetComponent<Rigidbody2D>().AddForce(allBullets.transform.up * bulletSpeed);
+                allBullets1 = Instantiate(Bullet, bulletSpawn1.position, bulletSpawn1.rotation);
+                allBullets2 = Instantiate(Bullet, bulletSpawn2.position, bulletSpawn2.rotation);
+                allBullets1.GetComponent<Rigidbody2D>().AddForce(allBullets1.transform.up * bulletSpeed);
+                allBullets2.GetComponent<Rigidbody2D>().AddForce(allBullets2.transform.up * bulletSpeed);
                 timer = IntervalTime;
             }
             timer -= Time.deltaTime;
