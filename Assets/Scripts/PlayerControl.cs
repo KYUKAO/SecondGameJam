@@ -10,35 +10,19 @@ public class PlayerControl : MonoBehaviour
     Rigidbody2D rb;
     public float MoveSpeed;
     SpriteRenderer sp;
-<<<<<<< HEAD
-    Animator anim;
-    float animFloat = 0.005f;
-=======
 
     public AudioSource BGM;
     public AudioSource Die;
     public AudioSource Pick;
     public AudioSource Car;
 
-<<<<<<< Updated upstream
-=======
->>>>>>> 26c8901f74515d1401ca1f577e6725c4162dfc66
->>>>>>> Stashed changes
     
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         Time.timeScale = 1;
         sp = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
-<<<<<<< Updated upstream
         Car.Play();
-=======
-<<<<<<< HEAD
-        anim = this.GetComponentInChildren<Animator>();
-=======
-        Car.Play();
->>>>>>> 26c8901f74515d1401ca1f577e6725c4162dfc66
->>>>>>> Stashed changes
     }
 
 
@@ -58,24 +42,6 @@ public class PlayerControl : MonoBehaviour
         Debug.Log(xInput);
         xInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(xInput*MoveSpeed, 0);
-
-        if (xInput < -animFloat)
-        {
-            anim.SetBool("isLeft", true);
-            anim.SetBool("isRight", false);
-        }
-        if (xInput >= -animFloat && xInput <= animFloat)
-        {
-            anim.SetBool("isLeft", false);
-            anim.SetBool("isRight", false);
-        }
-
-        if (xInput > animFloat)
-        {
-            anim.SetBool("isRight", true);
-            anim.SetBool("isLeft", false);
-        }
-
     }
     void Lose()
     {
