@@ -1,15 +1,30 @@
-SHVFS GameJam题目：
-游戏名字：
-核心机制：
-其他系统：
-		系统1：
-		系统2：
-		系统3：
-美术资源需求：
-		封面图
-		背景图
-		主角形象
-//Game Jam 流程：	1.Gym里实现基本功能， 主策调试手感，美术找素材
-								2.Gym里更改时美术将素材放入“Resources/Art”文件夹，如有需要可在Art场景中摆放。
-								3.修bug阶段主策在Level场景中放置Prefab以及调整关卡
-					*注：下午2:30后请务必进入修bug阶段，不要添加新的机制！
+SHVFS GameJam title:
+
+Game name:
+
+Core mechanics:
+
+Other systems:
+
+System 1:
+
+System 2:
+
+System 3:
+
+Art Resource Needs:
+
+cover
+
+background
+
+The main character image
+
+//Game Jam process: 1. Implement basic functions in Gym, main strategy debugging hand feel, art finding materials
+
+2. When changing in the Gym, put the Art materials into the "Resources/Art" folder, and put them in the Art scene if necessary.
+
+3. The main strategy for bug fixing is to place Prefab in the Level scene and adjust the Level
+
+* Note: Please enter the bug fixing phase after 2:30 PM, do not add new mechanics!
+
