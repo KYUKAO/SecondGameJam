@@ -9,16 +9,31 @@ public class PlayerControl : MonoBehaviour
     float xInput;
     Rigidbody2D rb;
     public float MoveSpeed;
+    SpriteRenderer sp;
+
     
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
-        Time.timeScale = 1;   
+        Time.timeScale = 1;
+        sp = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
 
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {if(this.GetComponent<Collider2D>().enabled == true)
+            {
+                this.GetComponent<Collider2D>().enabled = false;
+            }
+            else
+            {
+                this.GetComponent<Collider2D>().enabled = true;
+            }
+
+        }
+        Debug.Log(xInput);
         xInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(xInput*MoveSpeed, 0);
     }
@@ -32,7 +47,7 @@ public class PlayerControl : MonoBehaviour
         Time.timeScale = 0;
         WinInterface.SetActive(true);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<EnemyControl>() != null)
         {

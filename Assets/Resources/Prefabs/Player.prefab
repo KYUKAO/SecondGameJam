@@ -48,6 +48,8 @@ MonoBehaviour:
   WinInterface: {fileID: 0}
   LoseInterface: {fileID: 0}
   MoveSpeed: 10
+  NormalSprite: {fileID: 21300000, guid: 9f5540892deaf2c4eb152bb21365ff2a, type: 3}
+  LeftSprite: {fileID: 21300000, guid: 1b2eb1b92a95162489be5a0888599824, type: 3}
 --- !u!50 &7416123549767066907
 Rigidbody2D:
   serializedVersion: 4
