@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
-    public GameObject WinInterface;
     public GameObject LoseInterface;
     float xInput;
     Rigidbody2D rb;
