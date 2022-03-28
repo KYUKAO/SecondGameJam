@@ -17,6 +17,8 @@ public class EnemyControl : MonoBehaviour
     public float SpeedUpIntervalTime;
     SpriteRenderer sp;
     public Sprite DeadSprite;
+    bool isDead = false;
+    float deadTimer = 0;
     public enum EnemyType
     {
         Static,
@@ -36,7 +38,14 @@ public class EnemyControl : MonoBehaviour
         timer += Time.deltaTime;
         speedTimer += Time.deltaTime;
         Move();
-
+        if (isDead)
+        {
+            deadTimer += Time.fixedDeltaTime;
+            if (deadTimer >= 1f)
+            {
+                Destroy(this.gameObject);
+            }
+        }
     }
     void Move()
     {
@@ -78,12 +87,11 @@ public class EnemyControl : MonoBehaviour
     void Die()
     {
         sp.sprite = DeadSprite;
-        Invoke("DestroyItself",1f);
+        isDead = true;
+        rb.velocity = Vector2.zero;
+        this.GetComponent<BoxCollider2D>().enabled = false;
     }
-    void DestroyItself()
-    {
-        Destroy(this.gameObject);
-    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<BulletComponent>())

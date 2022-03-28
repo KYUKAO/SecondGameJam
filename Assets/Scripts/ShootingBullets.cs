@@ -15,22 +15,29 @@ public class ShootingBullets : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        timer =0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space)||Input.GetKeyDown(KeyCode.Space))
         {
             
-            timer -= Time.deltaTime;
-            if (timer < 0)
+            if (timer <= 0)
             {
                 Shoot.Play();
                 allBullets = Instantiate(Bullet, bulletSpawn.position, bulletSpawn.rotation);
                 allBullets.GetComponent<Rigidbody2D>().AddForce(allBullets.transform.up * bulletSpeed);
                 timer = IntervalTime;
+            }
+            timer -= Time.deltaTime;
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            if (timer <= IntervalTime / 2)
+            {
+                timer = 0;
             }
         }
     }

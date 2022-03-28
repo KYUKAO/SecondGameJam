@@ -33,13 +33,13 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F1))
-        {if(this.GetComponent<Collider2D>().enabled == true)
+        {if(this.GetComponent<CapsuleCollider2D>().enabled == true)
             {
-                this.GetComponent<Collider2D>().enabled = false;
+                this.GetComponent<CapsuleCollider2D>().enabled = false;
             }
             else
             {
-                this.GetComponent<Collider2D>().enabled = true;
+                this.GetComponent<CapsuleCollider2D>().enabled = true;
             }
 
         }
