@@ -11,6 +11,10 @@ public class PlayerControl : MonoBehaviour
     public float MoveSpeed;
     SpriteRenderer sp;
 
+    public AudioSource BGM;
+    public AudioSource Die;
+    public AudioSource Pick;
+
     
     void Start()
     {
@@ -41,6 +45,8 @@ public class PlayerControl : MonoBehaviour
     {
         Time.timeScale = 0;
         LoseInterface.SetActive(true);
+        BGM.Stop();
+        Die.Play();
     }
     void Win()
     {

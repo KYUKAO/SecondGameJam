@@ -10,6 +10,7 @@ public class ShootingBullets : MonoBehaviour
     public float IntervalTime;
     public Transform bulletSpawn;
     public float bulletSpeed;
+    public AudioSource Shoot;
 
     // Start is called before the first frame update
     void Start()
@@ -22,9 +23,11 @@ public class ShootingBullets : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
+            
             timer -= Time.deltaTime;
             if (timer < 0)
             {
+                Shoot.Play();
                 allBullets = Instantiate(Bullet, bulletSpawn.position, bulletSpawn.rotation);
                 allBullets.GetComponent<Rigidbody2D>().AddForce(allBullets.transform.up * bulletSpeed);
                 timer = IntervalTime;
