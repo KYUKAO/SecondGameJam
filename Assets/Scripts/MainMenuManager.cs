@@ -5,7 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-public void StartGame()
+    public void update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            StartGame();
+        }
+    }
+    public void StartGame()
     {
         SceneManager.LoadScene("Level");
     }

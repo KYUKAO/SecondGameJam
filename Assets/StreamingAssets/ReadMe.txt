@@ -1,16 +1,16 @@
-SHVFS GameJam title:
+SHVFS GameJam title: Copy Jam
 
-Game name:
+Game name: Action Fighter
 
-Core mechanics:
+Core mechanics: drive left and right, shoot
 
 Other systems:
 
-System 1:
+System 1: destroy other cars
 
-System 2:
+System 2: damaged after colliding with other cars
 
-System 3:
+System 3: Upgrade after getting items
 
 Art Resource Needs:
 
